@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation Example</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <h1>Form Validation Example</h1>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <span id="nameError" class="error"></span><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <span id="emailError" class="error"></span><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" required>
+    <span id="phoneError" class="error"></span><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <span id="passwordError" class="error"></span><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" required>
+    <span id="ageError" class="error"></span><br><br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" required>
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <span id="genderError" class="error"></span><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required>
+    <span id="dobError" class="error"></span><br><br>
+
+    <label for="color">Favorite Color:</label>
+    <input type="color" id="color" required>
+    <span id="colorError" class="error"></span><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    const form = document.getElementById('myForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    function validateForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      const age = document.getElementById('age').value;
+      const gender = document.getElementById('gender').value;
+      const dob = document.getElementById('dob').value;
+      const color = document.getElementById('color').value;
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const passwordError = document.getElementById('passwordError');
+      const ageError = document.getElementById('ageError');
+      const genderError = document.getElementById('genderError');
+      const dobError = document.getElementById('dobError');
+      const colorError = document.getElementById('colorError');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      phoneError.textContent = '';
+      passwordError.textContent = '';
+      ageError.textContent = '';
+      genderError.textContent = '';
+      dobError.textContent = '';
+      colorError.textContent = '';
+
+      if (!name) {
+        nameError.textContent = 'Name is required';
+      }
+
+      if (!email) {
+        emailError.textContent = 'Email is required';
+      } else if (!validateEmail(email)) {
+        emailError.textContent = 'Please enter a valid email address';
+      }
+
+      if (!phone) {
+        phoneError.textContent = 'Phone number is required';
+      } else if (!validatePhone(phone)) {
+        phoneError.textContent = 'Please enter a valid phone number';
+      }
+
+      if (!password) {
+        passwordError.textContent = 'Password is required';
+      }
+
+      if (!age) {
+        ageError.textContent = 'Age is required';
+      }
+
+      if (!gender) {
+        genderError.textContent = 'Gender is required';
+      }
+
+      if (!dob) {
+        dobError.textContent = 'Date of Birth is required';
+      }
+
+      if (!color) {
+        colorError.textContent = 'Favorite color is required';
+      }
+    }
+
+    function validateEmail(email) {
+      // Regular expression for email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function validatePhone(phone) {
+      // Regular expression for phone number validation
+      const phoneRegex = /^\d{10}$/;
+      return phoneRegex.test(phone);
+    }
+  </script>
+</body>
+</html>

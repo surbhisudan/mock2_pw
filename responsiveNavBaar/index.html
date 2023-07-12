@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class=>
+        <div>
+            <h1>PW SKILLS</h1>
+        </div>
+     
+        <div class="list v-class">
+            
+            <ul>
+                <li>Courses</li>
+                <li>Job Portal</li>
+                <li>pw lab</li>
+                <li>Menu</li>
+                <li>Experience Portal</li>
+            </ul>
+          
+        </div>
+        <div class="hamburger">
+            <div class="ham"></div>
+            <div class="ham"></div>
+            <div class="ham"></div>
+        </div>
+    </nav>
+    <script>
+        const hamburger=document.querySelector(".hamburger");
+
+        hamburger.addEventListener("click",()=>{
+            const list=document.querySelector(".list");
+            list.classList.toggle("v-class")
+        })
+    </script>
+</body>
+</html>

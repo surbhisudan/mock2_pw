@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box1"></div>
+
+    <script>
+        const box1=document.querySelector(".box1")
+        
+
+    // box1.addEventListener("click",()=>{
+    //     box1.style.width="600px";
+    //     box1.style.height="600px";
+    //     box1.style.backgroundColor="yellow";
+
+
+    // })
+    box1.addEventListener("click",()=>{
+        box1.classList.toggle("yellow")
+    })
+    </script>
+</body>
+</html>
